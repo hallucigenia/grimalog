@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The HDR Channel on Fancy&#39;s Blog</title>
+    <link>https://hallucigenia.github.io/en/tags/the-hdr-channel/</link>
+    <description>Recent content in The HDR Channel on Fancy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 01 Jan 2020 16:23:40 +0100</lastBuildDate>
+    
+	<atom:link href="https://hallucigenia.github.io/en/tags/the-hdr-channel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Real 4K HDR 60fps</title>
+      <link>https://hallucigenia.github.io/en/video/lg-jazz-hdr-uhd-chromecast-ultra/</link>
+      <pubDate>Wed, 01 Jan 2020 16:23:40 +0100</pubDate>
+      
+      <guid>https://hallucigenia.github.io/en/video/lg-jazz-hdr-uhd-chromecast-ultra/</guid>
+      <description>&lt;p&gt;Looks great on my Oneplus 7 Plus&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

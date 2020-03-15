@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Fancy&#39;s Blog</title>
+    <link>https://hallucigenia.github.io/en/page/</link>
+    <description>Recent content in Pages on Fancy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 13 Mar 2020 10:18:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://hallucigenia.github.io/en/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>https://hallucigenia.github.io/en/page/about-me/</link>
+      <pubDate>Fri, 13 Mar 2020 10:18:45 +0800</pubDate>
+      
+      <guid>https://hallucigenia.github.io/en/page/about-me/</guid>
+      <description>Thanks for browsing my Blog and interested in You can call me boy which is my English name. I&amp;rsquo;am from Canton, a city in China. But now I&amp;rsquo;m stay in Beijing to find a suitable job for myself.
+ I worked as a Server R &amp;amp; D Engineer in Qihoo 360 Technology Co. Ltd. and I have about 1 year work experience. My major work was Python Web development based on flask framework and Junior Golang development.</description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>https://hallucigenia.github.io/en/page/github/</link>
+      <pubDate>Wed, 01 Nov 2017 13:17:56 +0100</pubDate>
+      
+      <guid>https://hallucigenia.github.io/en/page/github/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

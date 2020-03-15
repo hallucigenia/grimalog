@@ -9,10 +9,10 @@ enableRobotsTXT = true
 DefaultContentLanguage = "tc"
 
 # Enable / Disable Google Analytics statistics for your site
-googleAnalytics = ""
+googleAnalytics = "UA-160694437-1"
 
 # Enable / Disable comments on the articles via Disqus.
-disqusShortname = "bilberry-hugo-theme"
+disqusShortname = "fancys"
 
 # Enable / Disable open link with a new tab.
 [blackfriday]
@@ -39,11 +39,11 @@ disqusShortname = "bilberry-hugo-theme"
 
   # Enable / Disable algolia search
   algolia_search    = true
-  algolia_appId     = "Y2C4RWMPXW"
-  algolia_apiKey    = "50ea7f8c41c0ad233926e0be2b769ed1"
-  algolia_indexName = "default-content"
+  algolia_appId     = "8JWRQ9KNXC"
+  algolia_apiKey    = "0f05c447096335c55a457fe4cfaae96a"
+  algolia_indexName = "grimalog"
     # Set this option to false if you want to search within all articles in all languages at once
-    algolia_currentLanguageOnly = true
+    algolia_currentLanguageOnly = false
 
   # Media configuration
     # let hugo automatically resize and crop your images to the correct sizes
@@ -65,11 +65,11 @@ disqusShortname = "bilberry-hugo-theme"
     overlayIcon = "fa-home"
 
     # always display the top navigation (with pages and search) on non-mobile screens
-    permanentTopNav = false
+    permanentTopNav = true
 
     # always display the top navigation when scrolling
     # works only with permanentTopNav = true
-    stickyNav = false
+    stickyNav = true
 
     # show a language chooser in the header
     showHeaderLanguageChooser = true
@@ -113,14 +113,15 @@ disqusShortname = "bilberry-hugo-theme"
     # brand icons https://fontawesome.com/icons?d=gallery&s=brands&m=free
     socialMediaLinks = [
       { link = "https://twitter.com/_fancyan", icon = "fab fa-twitter" },
+      { link = "https://www.instagram.com/monophoton", icon = "fab fa-instagram" },
       { link = "https://github.com/hallucigenia", icon = "fab fa-github" },
     ]
 
     # credits line configuration
     copyrightBy = "by Fancy"
-    copyrightUseCurrentYear = false  # set to true to always display the current year in the copyright
-    copyrightYearOverride = "2020"
-    copyrightUrl = "https://github.com/hallucigenia"
+    copyrightUseCurrentYear = true  # set to true to always display the current year in the copyright
+    copyrightYearOverride = "1996"
+    copyrightUrl = "https://github.com/hallucigenia/hallucigenia.github.io"
     creditsText = "Fancy's Blog"
     creditsUrl = "https://bbyy.io"
 

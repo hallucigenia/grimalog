@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lossless on Fancy&#39;s Blog</title>
+    <link>https://bbyy.io/en/tags/lossless/</link>
+    <description>Recent content in Lossless on Fancy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 07 Feb 2020 09:15:08 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/en/tags/lossless/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>有心人 - leslie</title>
+      <link>https://bbyy.io/en/audio/you-xin-ren/</link>
+      <pubDate>Fri, 07 Feb 2020 09:15:08 +0800</pubDate>
+      
+      <guid>https://bbyy.io/en/audio/you-xin-ren/</guid>
+      <description>Music from leslie post in SoundCloud.</description>
+    </item>
+    
+  </channel>
+</rss>

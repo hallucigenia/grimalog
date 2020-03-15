@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fancy on Fancy‘s Blog</title>
+    <link>https://hallucigenia.github.io/author/fancy/</link>
+    <description>Recent content in Fancy on Fancy‘s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 13 Feb 2020 22:40:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://hallucigenia.github.io/author/fancy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>為 SqlAlchemy 添加分頁邏輯</title>
+      <link>https://hallucigenia.github.io/article/support-and-discussions/</link>
+      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
+      
+      <guid>https://hallucigenia.github.io/article/support-and-discussions/</guid>
+      <description>施工中，</description>
+    </item>
+    
+    <item>
+      <title>我的旅游记录</title>
+      <link>https://hallucigenia.github.io/gallery/gallery-test/</link>
+      <pubDate>Mon, 06 Jan 2020 21:20:56 +0800</pubDate>
+      
+      <guid>https://hallucigenia.github.io/gallery/gallery-test/</guid>
+      <description>照片牆測試</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Music on Fancy&#39;s Blog</title>
+    <link>https://bbyy.io/en/categories/music/</link>
+    <description>Recent content in Music on Fancy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 07 Feb 2020 09:15:08 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/en/categories/music/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>有心人 - leslie</title>
+      <link>https://bbyy.io/en/audio/you-xin-ren/</link>
+      <pubDate>Fri, 07 Feb 2020 09:15:08 +0800</pubDate>
+      
+      <guid>https://bbyy.io/en/audio/you-xin-ren/</guid>
+      <description>Music from leslie post in SoundCloud.</description>
+    </item>
+    
+    <item>
+      <title>Real 4K HDR 60fps</title>
+      <link>https://bbyy.io/en/video/lg-jazz-hdr-uhd-chromecast-ultra/</link>
+      <pubDate>Wed, 01 Jan 2020 16:23:40 +0100</pubDate>
+      
+      <guid>https://bbyy.io/en/video/lg-jazz-hdr-uhd-chromecast-ultra/</guid>
+      <description>&lt;p&gt;Looks great on my Oneplus 7 Plus&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

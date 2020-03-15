@@ -1,0 +1,58 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fancy&#39;s Blog</title>
+    <link>https://bbyy.io/en/</link>
+    <description>Recent content on Fancy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 13 Mar 2020 10:18:45 +0800</lastBuildDate>
+    
+        <atom:link href="https://bbyy.io/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Articles</title>
+      <link>https://bbyy.io/en/article/</link>
+      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
+      
+      <guid>https://bbyy.io/en/article/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Audios</title>
+      <link>https://bbyy.io/en/audio/</link>
+      <pubDate>Fri, 07 Feb 2020 09:15:08 +0800</pubDate>
+      
+      <guid>https://bbyy.io/en/audio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Galleries</title>
+      <link>https://bbyy.io/en/gallery/</link>
+      <pubDate>Mon, 06 Jan 2020 21:20:56 +0800</pubDate>
+      
+      <guid>https://bbyy.io/en/gallery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Videos</title>
+      <link>https://bbyy.io/en/video/</link>
+      <pubDate>Wed, 01 Jan 2020 16:23:40 +0100</pubDate>
+      
+      <guid>https://bbyy.io/en/video/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quotes</title>
+      <link>https://bbyy.io/en/quote/</link>
+      <pubDate>Wed, 01 Nov 2017 13:01:14 +0100</pubDate>
+      
+      <guid>https://bbyy.io/en/quote/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

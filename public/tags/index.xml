@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Fancy‘s Blog</title>
+    <link>https://bbyy.io/tags/</link>
+    <description>Recent content in Tags on Fancy‘s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 13 Feb 2020 22:40:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Code</title>
+      <link>https://bbyy.io/tags/code/</link>
+      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://bbyy.io/tags/python/</link>
+      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLAlchemy</title>
+      <link>https://bbyy.io/tags/sqlalchemy/</link>
+      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/sqlalchemy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>張國榮</title>
+      <link>https://bbyy.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</link>
+      <pubDate>Fri, 07 Feb 2020 09:15:08 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beijing</title>
+      <link>https://bbyy.io/tags/beijing/</link>
+      <pubDate>Mon, 06 Jan 2020 21:20:56 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/beijing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Canton</title>
+      <link>https://bbyy.io/tags/canton/</link>
+      <pubDate>Mon, 06 Jan 2020 21:20:56 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/canton/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>QingDao</title>
+      <link>https://bbyy.io/tags/qingdao/</link>
+      <pubDate>Mon, 06 Jan 2020 21:20:56 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/qingdao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>search engine</title>
+      <link>https://bbyy.io/tags/search-engine/</link>
+      <pubDate>Sat, 21 Dec 2019 09:07:11 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/search-engine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The HDR Channel</title>
+      <link>https://bbyy.io/tags/the-hdr-channel/</link>
+      <pubDate>Sun, 08 Dec 2019 19:14:02 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/the-hdr-channel/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
