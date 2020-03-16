@@ -27,11 +27,9 @@ resizeImages: false
 | **w(here)**        | 打印當前堆棧跟蹤位置                                         |
 | d(own)             | 執行跳轉到在當前堆棧的下壹層                                 |
 | u(p)               | 執行跳轉到當前堆棧的上壹層                                   |
-| **b(reak)**        | 設置斷點                                                     |
-|                    | line_no：當前腳本的line_no行添加斷點        filename:line_no：腳本filename的line_no行添加斷點         function：在函數function的第壹條可執行語句處添加斷點 |
+| **b(reak)**        | 設置斷點，line_no：當前腳本的line_no行添加斷點        filename:line_no：腳本filename的line_no行添加斷點         function：在函數function的第壹條可執行語句處添加斷點 |
 | **tbreak**         | 臨時斷點，運行壹次即刪除，參數與 *break* 同                  |
 | **cl(ear)**        | 清除斷點，默認清除所有斷點     bpnumber1 bpnumber2... 清除斷點號為bpnumber1,bpnumber2...的斷點       lineno 清除當前腳本lineno行的斷點      filename:line_no 清除腳本filename的line_no行的斷點 |
-|                    | 作者：zone 鏈接：https://juejin.im/post/5ce2bfb5e51d455070226ef5 來源：掘金 著作權歸作者所有。商業轉載請聯系作者獲得授權，非商業轉載請註明出處。 |
 | **disable/enable** | 停用但不清除/激活斷點                                        |
 | ignore             | 忽略斷點                                                     |
 | condition          | 設置條件斷點                                                 |

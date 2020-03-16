@@ -27,11 +27,9 @@ resizeImages: false
 | **w(here)**        | 打印当前堆栈跟踪位置                                         |
 | d(own)             | 执行跳转到在当前堆栈的下一层                                 |
 | u(p)               | 执行跳转到当前堆栈的上一层                                   |
-| **b(reak)**        | 设置断点                                                     |
-|                    | line_no：当前脚本的line_no行添加断点        filename:line_no：脚本filename的line_no行添加断点         function：在函数function的第一条可执行语句处添加断点 |
+| **b(reak)**        | 设置断点,line_no：当前脚本的line_no行添加断点        filename:line_no：脚本filename的line_no行添加断点         function：在函数function的第一条可执行语句处添加断点 |
 | **tbreak**         | 临时断点，运行一次即删除，参数与 *break* 同                  |
 | **cl(ear)**        | 清除断点，默认清除所有断点     bpnumber1 bpnumber2... 清除断点号为bpnumber1,bpnumber2...的断点       lineno 清除当前脚本lineno行的断点      filename:line_no 清除脚本filename的line_no行的断点 |
-|                    | 作者：zone 链接：https://juejin.im/post/5ce2bfb5e51d455070226ef5 来源：掘金 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 |
 | **disable/enable** | 停用但不清除/激活断点                                        |
 | ignore             | 忽略断点                                                     |
 | condition          | 设置条件断点                                                 |
