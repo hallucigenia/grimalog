@@ -12,7 +12,7 @@ DefaultContentLanguage = "tc"
 googleAnalytics = "UA-160694437-1"
 
 # Enable / Disable comments on the articles via Disqus.
-disqusShortname = "fancys"
+disqusShortname = "hallucigenia"
 
 # Enable / Disable open link with a new tab.
 [blackfriday]
@@ -53,7 +53,7 @@ disqusShortname = "fancys"
 
   # Header configuration
     # your subtitle if you want to use any
-    subtitle = "方方哥的Blog"
+    subtitle = "這是我的全內容Blog，技術Blog可移步sc語言"
 
     # if you want to use gravatar for the header image
     gravatarEMail = "air.bylive@gmail.com"
@@ -133,8 +133,8 @@ disqusShortname = "fancys"
     weight = 1
   [Languages.sc]
     weight = 2
-    title = "方的个人博客"
-    subtitle = "你好，这是我的博客"
+    title = "方的技术博客"
+    subtitle = "你好，这是我的技术博客"
   [Languages.en]
     weight = 3
     title = "Fancy's Blog"
