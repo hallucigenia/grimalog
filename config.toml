@@ -43,7 +43,7 @@ disqusShortname = "hallucigenia"
   algolia_apiKey    = "0f05c447096335c55a457fe4cfaae96a"
   algolia_indexName = "grimalog"
     # Set this option to false if you want to search within all articles in all languages at once
-    algolia_currentLanguageOnly = false
+    algolia_currentLanguageOnly = true
 
   # Media configuration
     # let hugo automatically resize and crop your images to the correct sizes
@@ -53,7 +53,7 @@ disqusShortname = "hallucigenia"
 
   # Header configuration
     # your subtitle if you want to use any
-    subtitle = "這是我的全內容Blog，技術Blog可移步sc語言"
+    subtitle = "Fancy的個人Blog，技術Blog可移步SC語言"
 
     # if you want to use gravatar for the header image
     gravatarEMail = "air.bylive@gmail.com"
@@ -62,7 +62,7 @@ disqusShortname = "hallucigenia"
     customImage = ""
 
     # define the icon you want to use for the overlay for the customImage or gravatar.
-    overlayIcon = "fa-home"
+    overlayIcon = "fa-tape"
 
     # always display the top navigation (with pages and search) on non-mobile screens
     permanentTopNav = true
@@ -133,8 +133,8 @@ disqusShortname = "hallucigenia"
     weight = 1
   [Languages.sc]
     weight = 2
-    title = "方的技术博客"
-    subtitle = "你好，这是我的技术博客"
+    title = "Fancy‘s Technology Blog"
+    subtitle = "Fancy的技术博客"
   [Languages.en]
     weight = 3
     title = "Fancy's Blog"
