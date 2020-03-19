@@ -43,7 +43,7 @@ disqusShortname = "hallucigenia"
   algolia_apiKey    = "0f05c447096335c55a457fe4cfaae96a"
   algolia_indexName = "grimalog"
     # Set this option to false if you want to search within all articles in all languages at once
-    algolia_currentLanguageOnly = true
+    algolia_currentLanguageOnly = false
 
   # Media configuration
     # let hugo automatically resize and crop your images to the correct sizes

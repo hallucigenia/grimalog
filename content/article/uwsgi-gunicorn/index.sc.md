@@ -8,14 +8,14 @@ noSummary: true
 
 resizeImages: false
 ---
-> 从flask微信公众号后台分析
-> Ubuntu+Python3+pipenv+flask环境下 uWSGI/Gunicorn+supervisor+nginx配置问题
->
-> 这里的示例程序代码接上篇[使用Flask创建微信公众号](https://link.zhihu.com/?target=https%3A//fancysly.com/post/9)
+从flask微信公众号后台分析Ubuntu+Python3+pipenv+flask环境下 uWSGI/Gunicorn+supervisor+nginx配置问题
+
+<!--more-->
 
 在服务器能正常通信后，Werkzeug提供的的WSGI并不适合生产环境，调试完代码第一件事就找个独立WSGI容器。我们这里选择uWSGI和gunicorn，相对来说这两个比gevent更适合大型项目，uWSGI出现的比较早，gunicorn是从Ruby的unicorn移植而来，配置也简单。为了熟悉uwsgi我都尝试一下吧
 
-<!--more-->
+
+> 这里的示例程序代码接上篇[使用Flask创建微信公众号](https://link.zhihu.com/?target=https%3A//fancysly.com/post/9)
 
 ## uWSGI配置
 
@@ -106,7 +106,7 @@ $ vi /etc/nginx/sites-enabled/wepub
 
 *wepub:*
 
-```json
+```java
 server {
     listen  80;
     server_name _;
@@ -120,7 +120,7 @@ server {
 
 `server_name`可以指定HOST域名解析后的公网地址，这里默认用的是通配符 这里是最简配置，定义日志存放重写请求头部这些，有机会再详细说明吧 如果项目有静态文件的话，设置路径与过期时间
 
-```json
+```java
 location /static {
     alias /the/path/to/staitic;
     expires 30d;
@@ -146,7 +146,7 @@ $ sudo service nginx restart
 
 *wepub:*
 
-```json
+```java
 server {
     listen 80;
     server_name example.org;
@@ -160,7 +160,7 @@ server {
 
 location 只需要直接转发gunicorn运行地址即可运行，这里是最简配置，成功后直接80地址即可访问服务器反向代理部分：
 
-```json
+```java
     location / {
         proxy_pass         http://localhost:8000/; #gunicorn 运行地址
         proxy_redirect     off;
@@ -168,7 +168,7 @@ location 只需要直接转发gunicorn运行地址即可运行，这里是最简
         proxy_set_header   Host             $http_host;
         proxy_set_header   X-Real-IP        $remote_addr;
         proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-    }
+   }
 ```
 
 
