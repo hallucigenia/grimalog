@@ -3,7 +3,7 @@ title: "为 SqlAlchemy 添加分页逻辑"
 date: 2020-01-13T22:40:20+08:00
 
 categories: ['Code']
-tags: ['SQLAlchemy', 'Python', 'Code']
+tags: ['SQLAlchemy', 'Python']
 author: "Fancy"
 draft: false
 resizeImages: false

@@ -28,24 +28,28 @@ Sphinx是一个Python编写的一个非常好用的撰写文档框架，http://w
 # 项目引入
 我们先fork一份要翻译的文档项目，比如我们这回的`flask-pymongo`为例，因为是初次翻译，避重就轻了一点，其实最好还是和作者联系一下。
 
-![github](/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/01.png  "github")
+![github](https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/article/sphinx-flask-pymongo/01.png  "github")
 
 拷贝到本地后仅保留docs文件夹即可。然后在github里新建一个仓库。
 作者这里之前用的pip，我们使用pipenv创建环境后需要手动安装reqirements.txt的依赖。这是非必须的，作者在这里借助包同步版本号，我们更新并没有那么及时，可以手动更改本地化的版本。
 
 
 部署完pipenv环境后首先安装Sphinx，以Ubuntu环境为例
-
+```
   $ pipenv install sphinx 
   $ pipenv install sphinix-intl
-
+```
 这里的`sphinix-intl`是本地化翻译用的命令行工具，可以方便我们抽取`.po`文件Sphinx的操作基本还是依赖命令行。
 
 >另外，可能你在StackOverFlow已经遇到过一个奇葩的缩写了，真的这里带了三个概念
 
->1. 国际化 (Internationalzation) 因为`I`与`N`之间有18个字母所以缩写为`I18n`
+1. 国际化 (Internationalzation) 因为`I`与`N`之间有18个字母所以缩写为`I18n`
+
 2. 本地化 (Localization) 因为`L`与`N`之间有10个字母所以缩写为`L10n`
+
 3. 全球化 (Globalization)  同时进行了国际化与本地话，缩写`G11n`
+
+   
 
 .po文件是GNU下gettext的一套应用规范，类似于Babel等诸多L10n工作都会用得到
 
@@ -82,31 +86,31 @@ _build目录下出现我们定义的locale文件夹，里面对应生成的.pot�
 
 
 更新对应语言，提取文件到po列表
-
+```
   $ sphinx-intl update -p _build/locale -l zh_CN
-
+```
 Sphinx可能会这样显示
-
+```
   >Create: locale/zh_CN/LC_MESSAGES/index.po
-
+```
 
 据Sphinx提示，本地生成了locale文件夹，里面的LC_MESSAGES中的index.po即是我们的po文件，要翻译的片段由三部分组成
-
+```
   #: ../../index.rst:12 #片段所在文件与代码行数
   msgid "提取出待翻译的源片段"
   msgstr "你要翻译的汉语位置"
-
+```
 用VIM的PO插件`po.vim`,或者是[Poedit](https://poedit.net)
 这世界上翻译有两种，Google翻译和其他翻译，Poedit免费版提供的就是没什么卵用的其他翻译。
-![poedit](/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/02.png  "poedit")
+![poedit](https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/article/sphinx-flask-pymongo/02.png  "poedit")
 
 编辑需特别注意rst文件格式语法存在的大量半角空格，
 编辑后我们make即可生成对应的编译MO文件和PO在同一目录，
 可以`make html`生成html查看效果。
 如果出现这种情况，
-![Error](/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/03.png  "Error")
+![Error](https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/article/sphinx-flask-pymongo/03.png  "Error")
 系语法错误，对照生成在_build/html里的对应html文件修改
-![fininshed](/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/04.png  "finished")
+![fininshed](https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/article/sphinx-flask-pymongo/04.png  "finished")
 
 至此，编译完成，我们先将编译好的文档上传到github。然后选择文档托管平台，这里以Read the Docs为例。
 
@@ -117,17 +121,17 @@ Sphinx可能会这样显示
 我们需要进入到 [ReadtheDocs官网](https://readthedocs.org/)注册个账号，注册后如果个人界面，点`Import a Respository`导入Github项目
 
 命名好名字，进入设置里，Setting里下拖Language选择`Simplfied Chinese`或者其他翻译的语言
-![setting](/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/05.png  "setting")
+![setting](https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/article/sphinx-flask-pymongo/05.png  "setting")
 
 `Advanced Settings`更改好本地化语言与Python3 环境，可以去掉`Enable PDF build:`的勾以防止
-![change](/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/06.png  "change")
+![change](https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/article/sphinx-flask-pymongo/06.png  "change")
 点Build version
 
-![import](/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/07.png  "import")
+![import](https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/article/sphinx-flask-pymongo/07.png  "import")
 
 完成，等网站地图更新后，我们就可以在搜索里找到自己翻译的文档了
 
-![over](/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/08.png  "over")
+![over](https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/article/sphinx-flask-pymongo/08.png  "over")
 
 
 #后记
