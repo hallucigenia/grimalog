@@ -2,18 +2,19 @@
 title: "uWSGI和Gunicorn對比實踐筆記"
 date: 2019-01-27T12:13:48+08:00
 
+categories: ['Code']
 tags: ['Python', 'Gunicorn', 'uWSGI']
 author: "Fancy"
-noSummary: true
 
 resizeImages: false
 ---
-在服務器能正常通信後，Werkzeug提供的的WSGI並不適合生產環境，調試完代碼第一件事就找個獨立WSGI容器。我們這裏選擇uWSGI和gunicorn，相對來說這兩個比gevent更適合大型項目，uWSGI出現的比較早，gunicorn是從Ruby的unicorn移植而來，配置也簡單。為了熟悉uwsgi我都嘗試一下吧
+
+从flask微信公众号后台分析Ubuntu+Python3+pipenv+flask环境下 uWSGI/Gunicorn+supervisor+nginx配置问题
 <!--more-->
 
-> 從flask微信公眾號後臺分析
-> Ubuntu+Python3+pipenv+flask環境下 uWSGI/Gunicorn+supervisor+nginx配置問題
->
+在服務器能正常通信後，Werkzeug提供的的WSGI並不適合生產環境，調試完代碼第一件事就找個獨立WSGI容器。我們這裏選擇uWSGI和gunicorn，相對來說這兩個比gevent更適合大型項目，uWSGI出現的比較早，gunicorn是從Ruby的unicorn移植而來，配置也簡單。為了熟悉uwsgi我都嘗試一下吧
+
+
 > 這裏的示例程序代碼接上篇[使用Flask創建微信公眾號](https://link.zhihu.com/?target=https%3A//fancysly.com/post/9)
 
 ## uWSGI配置

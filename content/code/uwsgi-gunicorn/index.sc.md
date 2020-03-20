@@ -2,9 +2,9 @@
 title: "uWSGI和Gunicorn对比实践笔记"
 date: 2019-01-27T12:13:48+08:00
 
+categories: ['Code']
 tags: ['Python', 'Gunicorn', 'uWSGI']
 author: "Fancy"
-noSummary: true
 
 resizeImages: false
 ---
