@@ -1,6 +1,6 @@
 ---
 title: "Gunicorn Supervisor Deploy"
-date: 2019-12-25T16:53:48+08:00
+date: 2019-09-25T16:53:48+08:00
 
 categories: ['Code']
 tags: ['Gunicorn', 'Supervisor', 'Python']
