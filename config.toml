@@ -65,7 +65,7 @@ disqusShortname = "hallucigenia"
     overlayIcon = "fa-tape"
 
     # always display the top navigation (with pages and search) on non-mobile screens
-    permanentTopNav = true
+    permanentTopNav = false
 
     # always display the top navigation when scrolling
     # works only with permanentTopNav = true
@@ -89,7 +89,7 @@ disqusShortname = "hallucigenia"
     dateFormat = "1996-04-19"
 
     # display the estimated reading time for an article
-    showReadingTime = false
+    showReadingTime = true
 
   # Footer configuration
     showFooter = true

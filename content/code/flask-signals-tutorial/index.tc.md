@@ -6,6 +6,7 @@ draft: false
 categories: ['Code']
 tags: ['Signal', 'Blinker', 'Python']
 author: "Fancy"
+resizeImages: false
 ---
 Blinker觸發信號記錄與實踐
 

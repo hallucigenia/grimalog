@@ -6,11 +6,13 @@ draft: false
 categories: ['Code']
 tags: ['Kubernetes', 'Docker']
 author: "Fancy"
+resizeImages: false
+
 ---
 
 <!--more-->
 
-> 零零散散看了不少k8s的文檔，搭建過幾次，每次都有不同的收獲，姿勢也是五花八門，網上關於K8s部署的文檔坑實在是太多了，想著能否好好總結下，學習下部署設計，便於自己查閱以及更好的學習。
+> 零零散散看了不少k8s的文档，搭建过几次，每次都有不同的收获，部署根据不同的应用场景比较灵活，对应的姿势也是五花八门，网上关于K8s部署的文档坑实在是太多了，想著能否好好总结下，学习下部署设计，便于自己查阅以及更好的理解k8s。
 
 目前kubeadm支持：
 
@@ -202,7 +204,7 @@ docker info | grep -i cgroup
 
 ### 初始化部署Master（Master）
 
-两种常用的方式，我个人更建议第二种生成文件的部署方式。
+如果熟悉之后，有更多的灵活性可以按需调整，我个人更建议第二种生成文件的部署方式。
 
 - **直接初始化init部署**
 
@@ -215,7 +217,7 @@ docker info | grep -i cgroup
       --image-repository=registry.aliyuncs.com/google_containers
   ```
 
-  参数说明**：
+  参数说明：
 
   - **–-pod-network-cidr**：集群所属的Pod子网范围，使用fannel网络必须使用这个CIDR。
   - **–-kubernetes-version**：指定K8S版本，建议与kubeadm, kubelet 和 kubectl一致。
@@ -235,7 +237,7 @@ docker info | grep -i cgroup
   $ kubeadm config print init-defaults --kubeconfig ClusterConfiguration > kubeadm.yml
   ```
 
-  根据情况修改配置文件内容
+  根据情况修改配置文件内容，kube-proxy 的 IPVS 模式在大规模下会有更好的性能表现，我们
 
   ```yaml
   apiVersion: kubeadm.k8s.io/v1beta2
@@ -279,6 +281,8 @@ docker info | grep -i cgroup
   scheduler: {}
   ```
 
+  
+
   保存kubeadm.yml后，查看及拉取镜像
 
   ```bash
@@ -315,8 +319,41 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
+kubeadm join 192.168.123.181:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
     --discovery-token-ca-cert-hash sha256:a407b3d77b8cb9942c06d32a3aa51ed4ed34e4faec3186d9eabd0c4ef307562e
+```
+
+最后一句务必要先记录下来。
+
+
+
+## 配置 kubectl 环境（Master）
+
+如果是root账户不必最后一句chown赋予权限操作
+
+```bash
+$ mkdir -p $HOME/.kube
+$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+
+
+## 使用Dashboard（Master）
+
+如果使用Dashboard，应在配置 kubectl 环境后，Node Join前部署，否则：
+
+```bash
+W0401 18:20:37.196454   22044 join.go:346] [preflight] WARNING: JoinControlPane.controlPlane settings will be ignored when control-plane flag is not set.
+```
+
+可以使用这句命令一键部署
+
+```bash
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+
+$ kubectl get pods --all-namespaces | grep dashboard
+
 ```
 
 
@@ -325,16 +362,13 @@ kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
 
 如以上的最后一句，我们可以使用root权限将Worker添加节点进来集群。
 
-```
-sudo kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
+```bash
+$ sudo kubeadm join 192.168.123.181:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
     --discovery-token-ca-cert-hash sha256:a407b3d77b8cb9942c06d32a3aa51ed4ed34e4faec3186d9eabd0c4ef307562e
 ```
 
 ```
-W0401 18:20:37.196454   22044 join.go:346] [preflight] WARNING: JoinControlPane.controlPlane settings will be ignored when control-plane flag is not set.
 [preflight] Running pre-flight checks
-	[WARNING Hostname]: hostname "k8s-node1" could not be reached
-	[WARNING Hostname]: hostname "k8s-node1": lookup k8s-node1 on 8.8.8.8:53: no such host
 [preflight] Reading configuration from the cluster...
 [preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
 [kubelet-start] Downloading configuration for the kubelet from the "kubelet-config-1.18" ConfigMap in the kube-system namespace
@@ -350,15 +384,6 @@ This node has joined the cluster:
 Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 ```
 
-## 配置 kubectl
-
-```
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config(非root才做)
-
-```
-
 
 
 添加完毕后，可以在Master上查看节点状态：
@@ -369,28 +394,17 @@ $ kubectl get pods --all-namespaces
 
 
 
+> k8s部署下来，理解也不是很深入，如果有问题欢迎共同讨论。可能自己这篇也不免成为一个新坑吧。另外树莓派3B+做master节点不太合适，这里用的N1作为主节点，往后计划试试k3s部署，相较之下更加适合Arm架构以及树莓派这种低效能的服务器集群吧。这里先用HypriotOS做个过渡。
 
 
-## 使用Dashboard
-
-可以使用这句命令一键部署
-
-```bash
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
-
-$ kubectl get pods --all-namespaces | grep dashboard
-
-```
-
-
-
-> 可能自己这篇也不免成为一个新坑吧。
 
 ### 附：Raspberry Pi 如何使用 HypriotOS
 
-Etcher在写入之后可以编辑一下根目录的user-data如果你有Wifi连接的需求的话,这个步骤将是必须的.
+Etcher在写入之后，可以编辑一下根目录的user-data
 
-我尝试过很多官网或者 只有在官方Github博客源代码一个关闭的Issue里找到正解
+如果你有Wifi连接的需求的话,这个步骤将是必须的。
+
+尝试过很多官网或者帖子上的内容，官方Github博客源代码一个关闭的Issue里可以找到很好的解法
 
 ```yaml
 #cloud-config
@@ -464,5 +478,3 @@ bootcmd:
   - [ ifup, wlan0 ]
 
 ```
-
-未完待续。。。

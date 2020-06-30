@@ -6,16 +6,13 @@ draft: false
 categories: ['Code']
 tags: ['Kubernetes', 'Docker']
 author: "Fancy"
+resizeImages: false
 
 ---
 
-
-
 <!--more-->
 
-> 零零散散看了不少k8s的文檔，搭建過幾次，每次都有不同的收獲，姿勢也是五花八門，網上關於K8s部署的文檔坑實在是太多了，想著能否好好總結下，學習下部署設計，便於自己查閱以及更好的學習。
-
-
+> 零零散散看了不少k8s的文檔，搭建過幾次，每次都有不同的收獲，部署根據不同的應用場景比較靈活，對應的姿勢也是五花八門，網上關於K8s部署的文檔坑實在是太多了，想著能否好好總結下，學習下部署設計，便於自己查閱以及更好的理解k8s。
 
 目前kubeadm支持：
 
@@ -27,10 +24,9 @@ author: "Fancy"
 - HypriotOS v1.0.1 +
 - Container Linux (tested with 1800.6.0)
 
-
 官方建議至少2G內存，要求雙核及以上。並檢查網絡鏈接以及用的端口是否開放。更改下防火墻設置放行端口
 
-我這裏利用了`斐訊N1`刷的`Armbian`和`Raspberry Pi 3B+`的 `HypriotOS`組成最小單元的集成作為示例，之所以選擇這兩個，主要是因為硬件便宜（家裏已經4個N1了），另外想試試HypriotOS這麽好用的Docker專用系統，同是debian系的也便於安裝命令復用。剛好作為最小集群壹個Master節點壹個Node節點。
+我這裏利用了`斐訊N1`刷的`Armbian`和`Raspberry Pi 3B+`的`HypriotOS`組成最小單元的集成作為示例，之所以選擇這兩個，主要是因為硬件便宜（家裏已經4個N1了），另外想試試HypriotOS這麽好用的Docker專用系統，同是debian系的也便於安裝命令復用。剛好作為最小集群壹個Master節點壹個Node節點。
 
 比如Item2 就使用⌘(command) + d 左右分屏，⌘(command) + ⇧(shift) + i 開啟多窗口輸入命令。省很多功夫。
 
@@ -208,7 +204,7 @@ docker info | grep -i cgroup
 
 ### 初始化部署Master（Master）
 
-兩種常用的方式，我個人更建議第二種生成文件的部署方式。
+如果熟悉之後，有更多的靈活性可以按需調整，我個人更建議第二種生成文件的部署方式。
 
 - **直接初始化init部署**
 
@@ -221,7 +217,7 @@ docker info | grep -i cgroup
       --image-repository=registry.aliyuncs.com/google_containers
   ```
 
-  參數說明**：
+  參數說明：
 
   - **–-pod-network-cidr**：集群所屬的Pod子網範圍，使用fannel網絡必須使用這個CIDR。
   - **–-kubernetes-version**：指定K8S版本，建議與kubeadm, kubelet 和 kubectl壹致。
@@ -241,7 +237,7 @@ docker info | grep -i cgroup
   $ kubeadm config print init-defaults --kubeconfig ClusterConfiguration > kubeadm.yml
   ```
 
-  根據情況修改配置文件內容
+  根據情況修改配置文件內容，kube-proxy 的 IPVS 模式在大規模下會有更好的性能表現，我們
 
   ```yaml
   apiVersion: kubeadm.k8s.io/v1beta2
@@ -285,6 +281,8 @@ docker info | grep -i cgroup
   scheduler: {}
   ```
 
+  
+
   保存kubeadm.yml後，查看及拉取鏡像
 
   ```bash
@@ -321,8 +319,41 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
+kubeadm join 192.168.123.181:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
     --discovery-token-ca-cert-hash sha256:a407b3d77b8cb9942c06d32a3aa51ed4ed34e4faec3186d9eabd0c4ef307562e
+```
+
+最後壹句務必要先記錄下來。
+
+
+
+## 配置 kubectl 環境（Master）
+
+如果是root賬戶不必最後壹句chown賦予權限操作
+
+```bash
+$ mkdir -p $HOME/.kube
+$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+
+
+## 使用Dashboard（Master）
+
+如果使用Dashboard，應在配置 kubectl 環境後，Node Join前部署，否則：
+
+```bash
+W0401 18:20:37.196454   22044 join.go:346] [preflight] WARNING: JoinControlPane.controlPlane settings will be ignored when control-plane flag is not set.
+```
+
+可以使用這句命令壹鍵部署
+
+```bash
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+
+$ kubectl get pods --all-namespaces | grep dashboard
+
 ```
 
 
@@ -331,16 +362,13 @@ kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
 
 如以上的最後壹句，我們可以使用root權限將Worker添加節點進來集群。
 
-```
-sudo kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
+```bash
+$ sudo kubeadm join 192.168.123.181:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
     --discovery-token-ca-cert-hash sha256:a407b3d77b8cb9942c06d32a3aa51ed4ed34e4faec3186d9eabd0c4ef307562e
 ```
 
 ```
-W0401 18:20:37.196454   22044 join.go:346] [preflight] WARNING: JoinControlPane.controlPlane settings will be ignored when control-plane flag is not set.
 [preflight] Running pre-flight checks
-	[WARNING Hostname]: hostname "k8s-node1" could not be reached
-	[WARNING Hostname]: hostname "k8s-node1": lookup k8s-node1 on 8.8.8.8:53: no such host
 [preflight] Reading configuration from the cluster...
 [preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
 [kubelet-start] Downloading configuration for the kubelet from the "kubelet-config-1.18" ConfigMap in the kube-system namespace
@@ -356,15 +384,6 @@ This node has joined the cluster:
 Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
 ```
 
-## 配置 kubectl
-
-```
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config(非root才做)
-
-```
-
 
 
 添加完畢後，可以在Master上查看節點狀態：
@@ -375,28 +394,17 @@ $ kubectl get pods --all-namespaces
 
 
 
+> k8s部署下來，理解也不是很深入，如果有問題歡迎共同討論。可能自己這篇也不免成為壹個新坑吧。另外樹莓派3B+做master節點不太合適，這裏用的N1作為主節點，往後計劃試試k3s部署，相較之下更加適合Arm架構以及樹莓派這種低效能的服務器集群吧。這裏先用HypriotOS做個過渡。
 
 
-## 使用Dashboard
-
-可以使用這句命令壹鍵部署
-
-```bash
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
-
-$ kubectl get pods --all-namespaces | grep dashboard
-
-```
-
-
-
-> 可能自己這篇也不免成為壹個新坑吧。
 
 ### 附：Raspberry Pi 如何使用 HypriotOS
 
-Etcher在寫入之後可以編輯壹下根目錄的user-data如果妳有Wifi連接的需求的話,這個步驟將是必須的.
+Etcher在寫入之後，可以編輯壹下根目錄的user-data
 
-我嘗試過很多官網或者 只有在官方Github博客源代碼壹個關閉的Issue裏找到正解
+如果妳有Wifi連接的需求的話,這個步驟將是必須的。
+
+嘗試過很多官網或者帖子上的內容，官方Github博客源代碼壹個關閉的Issue裏可以找到很好的解法
 
 ```yaml
 #cloud-config
@@ -470,6 +478,3 @@ bootcmd:
   - [ ifup, wlan0 ]
 
 ```
-
-To be continue。。。
-
