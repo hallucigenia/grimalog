@@ -2,8 +2,8 @@
 title: "2019 Beijing‘s Landscape"
 date: 2020-07-01T00:11:56+08:00
 
-categories: ['Travelling', 'Holidays']
-tags: ['Flower', 'BeiJing']
+categories: ['Travelling']
+tags: ['Landscape', 'BeiJing']
 author: "Fancy"
 draft: false
 resizeImages: false

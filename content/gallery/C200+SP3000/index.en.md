@@ -1,8 +1,8 @@
 ---
 title: "2019 Beijing‘s Spring"
-date: 2020-06-28T22:41:56+08:00
+date: 2020-06-25T22:41:56+08:00
 
-categories: ['Travelling', 'Holidays']
+categories: ['Travelling']
 tags: ['Flower', 'BeiJing']
 author: "Fancy"
 draft: false
