@@ -53,7 +53,7 @@ disqusShortname = "hallucigenia"
 
   # Header configuration
     # your subtitle if you want to use any
-    subtitle = "Fancy的個人Blog，技術Blog可移步SC語言"
+    subtitle = "Fancy's Blog，技術Blog在SC語言"
 
     # if you want to use gravatar for the header image
     gravatarEMail = "air.bylive@gmail.com"
@@ -89,7 +89,7 @@ disqusShortname = "hallucigenia"
     dateFormat = "1996-04-19"
 
     # display the estimated reading time for an article
-    showReadingTime = true
+    showReadingTime = false
 
   # Footer configuration
     showFooter = true
