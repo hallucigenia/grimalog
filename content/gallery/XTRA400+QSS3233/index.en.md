@@ -8,4 +8,4 @@ author: "Fancy"
 draft: false
 resizeImages: false
 ---
-The Landscape in Beijing. Use Fujicolor XTRA400 Film and Nikon FM2, Scan By QSS-3233.
+The Landscape in Beijing. Use Fujicolor XTRA400 Film and Nikon FE2, Scan By QSS-3233.
